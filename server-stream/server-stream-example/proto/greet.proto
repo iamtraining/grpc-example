@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package greet;
+
+option go_package = "proto;greetpb";
+
+message Greeting {
+	string first_name = 1;
+	string last_name = 2;
+	int32 number_of_times = 3;
+}
+
+message GreetRequest {
+	Greeting greeting = 1;
+}
+
+message GreetResponse {
+	string result = 1;
+}
+
+service GreetService {
+	// streaming server
+	rpc GreetManyTimes(GreetRequest) returns (stream GreetResponse) {};
+}

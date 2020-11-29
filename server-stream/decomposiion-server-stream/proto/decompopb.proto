@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package decomposition;
+
+option go_package = "proto;decomp";
+
+message DecoRequest {
+	int32 number = 1;
+}
+
+message DecoResponse {
+	int32 result = 1;
+}
+
+service DecoService {
+	rpc Decomposite(DecoRequest) returns (stream DecoResponse) {};
+}

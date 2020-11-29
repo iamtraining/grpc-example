@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package computeavp;
+
+option go_package = "proto;avgpkg";
+
+message Request {
+	int32 num = 1;
+}
+
+message Response {
+	double result = 1;
+}
+
+service ComputeServise {
+	rpc Avg(stream Request) returns (Response) {};
+}

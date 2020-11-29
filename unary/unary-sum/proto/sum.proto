@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package sumapi;
+
+option go_package = "proto;sumpkg";
+
+message Form {
+	int32 first_term = 1;
+	int32 second_term =2;
+}
+
+message SumRequest {
+	Form nums = 1;
+}
+
+message SumResponse {
+	int32 result = 1;
+}
+
+service SumService {
+	rpc Add(SumRequest) returns (SumResponse) {};
+}
