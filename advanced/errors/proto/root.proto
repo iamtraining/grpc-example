@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package sqrt;
+
+option go_package = "proto;root";
+
+message Request {
+	int32 num = 1;
+}
+
+message Response {
+	double result = 1;
+}
+
+service RootSquare {
+	rpc Sqrt(Request) returns (Response) {};
+}
